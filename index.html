@@ -5,21 +5,88 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+    <link rel="stylesheet" href="./product_grid/styles/style.css">
+
+    <style>
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 50px;
+      height: 28px;
+      margin-top: 1rem;
+      margin-left: 1rem;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: #ccc;
+      transition: 0.4s;
+      border-radius: 34px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 20px;
+      width: 20px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      transition: 0.4s;
+      border-radius: 50%;
+    }
+
+    input:checked + .slider {
+      background-color: #003c71;
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(22px);
+    }
+  </style>
+
     <script type="module" src="./index.js" ></script>
 </head>
 <body>
-    <espe-product-card
-        name="Audífonos Gamer Pro"
-        image="https://tiendafotograficaecuador.com.ec/wp-content/uploads/2024/11/Canon-EOS-T7-con-lente-18-55mm-1.jpg"
-        rating="4.8"
-        sales="120"
-        lowstock
-        offer="15"
-        sku="XTR-4431"
-        currentPrice="49.99"
-        originalPrice="59.99"
-        hasDiscount
-        theme="dark"
-    ></espe-product-card>
+  <espe-product-card id="card"
+    name="Audífonos Gamer Pro"
+    image="https://tiendafotograficaecuador.com.ec/wp-content/uploads/2024/11/Canon-EOS-T7-con-lente-18-55mm-1.jpg"
+    rating="4.8"
+    sales="120"
+    lowstock
+    offer="15"
+    sku="XTR-4431"
+    currentPrice="49.99"
+    originalPrice="59.99"
+    hasDiscount
+    theme="light"
+  ></espe-product-card>
+  
+  <!-- Toggle switch -->
+  <label class="switch">
+    <input type="checkbox" id="themeToggle" onchange="toggleTheme()" />
+    <span class="slider"></span>
+  </label>
+
+  <script>
+    const card = document.getElementById('card');
+    const themeToggle = document.getElementById('themeToggle');
+
+    themeToggle.checked = card.getAttribute('theme') === 'dark';
+
+    function toggleTheme() {
+      const isDark = themeToggle.checked;
+      card.setAttribute('theme', isDark ? 'dark' : 'light');
+    }
+  </script>
 </body>
+
 </html>
