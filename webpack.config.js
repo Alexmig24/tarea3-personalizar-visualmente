@@ -8,7 +8,15 @@ module.exports={
         path: path.resolve(__dirname, 'dist'),
         filename: 'main.js'
     },
-        plugins:[new HtmlWebpackPlugin({
+    module: {
+        rules: [
+            {
+                test: /\.css$/i,
+                use: ['style-loader', 'css-loader'],
+            }
+        ],
+    },
+    plugins:[new HtmlWebpackPlugin({
         template:'./index.html',
     })],
 }
