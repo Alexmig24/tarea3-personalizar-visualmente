@@ -5,88 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
-    <link rel="stylesheet" href="./product_grid/styles/style.css">
-
-    <style>
-        .switch {
-            position: relative;
-            display: inline-block;
-            width: 50px;
-            height: 28px;
-            margin-top: 1rem;
-            margin-left: 1rem;
-        }
-
-        .switch input {
-            opacity: 0;
-            width: 0;
-            height: 0;
-        }
-
-        .slider {
-            position: absolute;
-            cursor: pointer;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background-color: #ccc;
-            transition: 0.4s;
-            border-radius: 34px;
-        }
-
-        .slider:before {
-            position: absolute;
-            content: "";
-            height: 20px;
-            width: 20px;
-            left: 4px;
-            bottom: 4px;
-            background-color: white;
-            transition: 0.4s;
-            border-radius: 50%;
-        }
-
-        input:checked + .slider {
-            background-color: #003c71;
-        }
-
-        input:checked + .slider:before {
-            transform: translateX(22px);
-        }
-    </style>
-
     <script type="module" src="./index.js" ></script>
 </head>
 <body>
-    <espe-product-card id="card"
-        name="Audífonos Gamer Pro"
-        image="https://digitalsmart.ec/wp-content/uploads/2024/01/AUDIFONOS-GAMER-INALMABRICOS-LOGITECH-G-PRO-X-2-LIGHTSPEED-2.jpg"
-        rating="4.8"
-        sales="120"
-        lowstock
-        offer="15"
-        sku="XTR-4431"
-        currentPrice="49.99"
-        originalPrice="59.99"
-        hasDiscount
-        theme="light"
-    ></espe-product-card>
-
-    <!-- Toggle switch -->
-    <label class="switch">
-        <input type="checkbox" id="themeToggle" onchange="toggleTheme()" />
-        <span class="slider"></span>
-    </label>
+    <div class="container">
+        <div class="header">
+            <label class="switch">
+                <input type="checkbox" id="themeToggle" onchange="toggleTheme()" />
+                <span class="slider"></span>
+            </label>
+        </div>
+        <div class="cards-wrapper">
+            <espe-product-card id="card"
+                name="Audífonos Gamer Pro"
+                image="https://digitalsmart.ec/wp-content/uploads/2024/01/AUDIFONOS-GAMER-INALMABRICOS-LOGITECH-G-PRO-X-2-LIGHTSPEED-2.jpg"
+                rating="4.8"
+                sales="120"
+                lowstock
+                offer="15"
+                sku="XTR-4431"
+                currentPrice="49.99"
+                originalPrice="59.99"
+                hasDiscount
+                theme="light"
+            ></espe-product-card>
+        
+            <br>
+    
+            <espe-card id="card"
+                name="Audífonos Gamer Pro"
+                image="https://digitalsmart.ec/wp-content/uploads/2024/01/AUDIFONOS-GAMER-INALMABRICOS-LOGITECH-G-PRO-X-2-LIGHTSPEED-2.jpg"
+                rating="4.8"
+                sales="120"
+                lowstock
+                offer="15"
+                sku="XTR-4431"
+                currentPrice="49.99"
+                originalPrice="59.99"
+                hasDiscount
+                theme="light"
+            ></espe-card>
+        </div>
+    </div>
 
     <script>
-        const card = document.getElementById('card');
+        const allCards = document.querySelectorAll('espe-product-card, espe-card');
         const themeToggle = document.getElementById('themeToggle');
 
-        themeToggle.checked = card.getAttribute('theme') === 'dark';
+        themeToggle.checked = allCards[0]?.getAttribute('theme') === 'dark';
+        document.body.classList.toggle('dark', themeToggle.checked);
 
         function toggleTheme() {
-        const isDark = themeToggle.checked;
-        card.setAttribute('theme', isDark ? 'dark' : 'light');
+            const isDark = themeToggle.checked;
+            allCards.forEach(card => {
+                card.setAttribute('theme', isDark ? 'dark' : 'light');
+            });
+            document.body.classList.toggle('dark', isDark);
         }
+
     </script>
 </body>
-
 </html>
