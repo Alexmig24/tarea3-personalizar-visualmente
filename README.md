@@ -23,7 +23,7 @@ npm install
 Para ejecutar con un servidor local ejecutar:
 
 ```bash
-npx run serve
+npm run serve
 ```
 ---
 ## Organización de las ramas del repositorio
