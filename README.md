@@ -32,10 +32,11 @@ Desarrollar dos componentes visualmente personalizables utilizando **CSS Variabl
 > - Definir variantes de estilo (ej: tema claro, tema oscuro, estado "agotado").
 
 
-
 ```bash
 https://github.com/Alexmig24/tarea3-personalizar-visualmente/tree/feature/figma 
 ```
+  ![Captura de ejecución](img/anto.png)
+
 ### Desarrollo del Componente
 
 - Usar LitElement para crear el componente con:
@@ -45,6 +46,7 @@ https://github.com/Alexmig24/tarea3-personalizar-visualmente/tree/feature/figma
 ```bash
 https://github.com/Alexmig24/tarea3-personalizar-visualmente/tree/feature/developer 
 ```
+  ![Captura de ejecución](img/alexi.png)
 
 ### Validación de Identidad de Marca
 
@@ -54,6 +56,8 @@ https://github.com/Alexmig24/tarea3-personalizar-visualmente/tree/feature/develo
 ```bash
 https://github.com/Alexmig24/tarea3-personalizar-visualmente/tree/feature/styles
 ```
+
+  ![Captura de ejecución](img/duran.png)
 
 
 ### Pruebas y Documentación
@@ -65,6 +69,7 @@ https://github.com/Alexmig24/tarea3-personalizar-visualmente/tree/feature/styles
 ```bash
 https://github.com/Alexmig24/tarea3-personalizar-visualmente/tree/feacture/documents
 ```
+  ![Captura de ejecución](img/ande.png)
 
 # Componentes
 ### 1. `<product-card>` (Horizontal)
