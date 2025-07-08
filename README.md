@@ -84,6 +84,8 @@ _toggleFavorite: Cambia el estado de "favorito".
         }));
     }
 ```
+  ![Captura de ejecución](img/favo.png)
+
 _addToCart: Agrega el producto al carrito.
 ```js
 _addToCart() {
@@ -110,10 +112,16 @@ _increment y _decrement: Incrementa o decrementa la cantidad del producto en el 
 ```
   ![Captura de ejecución](img/eje4.png)
 
-
+Este componente muestra una tarjeta con la imagen del producto, su calificación, ventas y precio. Los botones permiten agregar el producto al carrito o ajustar la cantidad seleccionada.
 
 ## 2. `<product-grid>` (Vertical) 
-Componente tipo tarjeta vertical con imagen superior y detalles inferiores.
+> Componente tipo tarjeta vertical con imagen superior y detalles inferiores.
+> 
+Este archivo define otro componente de LitElement, pero en este caso se trata de una variante del componente product-card en un formato de grilla. 
+La estructura básica es similar a la de product-card, pero las tarjetas se presentan de manera más vertical.
+
+Está optimizado para presentar varias tarjetas de productos en una grilla. Cada tarjeta tiene los mismos atributos que en product-card (nombre, imagen, calificación, precio, etc.), pero el diseño está enfocado en la visualización de múltiples productos a la vez. 
+
 
 ## 3. `<product-grid>` (Vertical y horizontal modo oscuro)
 > Componentes tipo tarjeta vertical y vertical modo oscuro
