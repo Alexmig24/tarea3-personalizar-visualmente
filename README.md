@@ -23,7 +23,7 @@ Desarrollar dos componentes visualmente personalizables utilizando **CSS Variabl
 
 📸 **Captura:**
 
-![espe-card](.img/horizontalModoClaro.jpg)
+![espe-card](./img/horizontalModoClaro.jpg)
 
 ### 2. `<product-grid>` (Vertical)
 
@@ -31,7 +31,7 @@ Desarrollar dos componentes visualmente personalizables utilizando **CSS Variabl
 
 📸 **Captura:**
 
-![espe-product-card](.img/verticalModoClaro.jpg)
+![espe-product-card](./img/verticalModoClaro.jpg)
 
 ### 3. `<product-grid>` (Vertical y horizontal modo oscuro)
 
@@ -39,7 +39,7 @@ Desarrollar dos componentes visualmente personalizables utilizando **CSS Variabl
 
 📸 **Captura:**
 
-![espe-product-card](.img/verthoriModoOscuro.jpg)
+![espe-product-card](./img/verthoriModoOscuro.jpg)
 
 ---
 
