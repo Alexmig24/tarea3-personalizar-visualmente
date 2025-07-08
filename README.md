@@ -148,6 +148,10 @@ Los botones como “Agregar” y los contenedores `.card` aplican transiciones:
 ```
 # Estructura del Proyecto
 
+  ![Captura de ejecución](img/conf.png)
+
+
+
 ## Diferencias entre estilos estáticos y dinámicos 
 
 - **Estilos Estáticos**: definidos directamente con valores fijos en CSS.
