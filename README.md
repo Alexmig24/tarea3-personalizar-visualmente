@@ -14,6 +14,29 @@ Desarrollar dos componentes visualmente personalizables utilizando **CSS Variabl
 - Integrar **colores institucionales** (verde ESPE `#006935`, amarillo ESPE `#FFE700`) y tipografía Arial/Roboto.
 
 ---
+# Roles Y Ramas desarrolladas 
+
+
+Rol
+Responsabilidad
+Diseñador UI
+Crear prototipo en Figma alineado al Manual de Imagen de la ESPE.
+Desarrollador de Componente
+Implementar el componente en LitElement con CSS Variables y Shadow DOM.
+Especialista en Estilos
+Validar estilos según la identidad de marca y accesibilidad.
+Tester y Documentador
+Probar en múltiples navegadores y generar documentación técnica.
+
+| **Rol**                    | **Responsable**     | **Descripción**                                          |
+|----------------------------|--------------|----------------------------------------------------------|
+| `Duseñador UI`                       | `Alexander Quizpe`     | Crear prototipo en Figma alineado al Manual de Imagen de la ESPE.                     |
+| `Desarrollador de Componente`           | `Anthony Mejia`     | Descripción detallada de la responsabilidad asociada al rol |
+| `Especialista en Estilos`               | `Geovanny Duran`     | Nombre del responsable o equipo encargado de esa responsabilidad |
+| `Tester y Documentador`              | `Anderson Campos`      | Herramientas utilizadas para realizar la tarea (opcional) |
+
+
+
 
 ## 🧩 Componentes
 
