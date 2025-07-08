@@ -12,6 +12,18 @@ Desarrollar dos componentes visualmente personalizables utilizando **CSS Variabl
 - Garantizar **accesibilidad visual**, contraste adecuado y responsividad.
 - Integrar **colores institucionales** (verde ESPE `#006935`, amarillo ESPE `#FFE700`) y tipografía Arial/Roboto.
 
+
+# Roles Y Ramas desarrolladas 
+
+
+| **Rol**                    | **Responsable**         | **Descripción**                                          |
+|----------------------------|--------------|----------------------------------------------------------|
+| Diuseñador UI               |Alexander Quizpe | Crear prototipo en Figma alineado al Manual de Imagen de la ESPE.  
+| Desarrollador de Componente    | Anthony Mejia     | Implementar el componente en LitElement con CSS Variables y Shadow DOM | 
+| Especialista en Estilos        | Geovanny Duran     | Validar estilos según la identidad de marca y accesibilidad.|
+| Tester y Documentador          | Anderson Campos      |	Probar en múltiples navegadores y generar documentación técnica.  |
+
+
 # Componentes
 ## 1. `<product-card>` (Horizontal)
 
