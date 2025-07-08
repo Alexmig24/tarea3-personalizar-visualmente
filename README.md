@@ -345,7 +345,6 @@ Este archivo contiene las dependencias del proyecto y las configuraciones de los
 - Mejoran la escalabilidad y mantenimiento del código.
 
     ![Captura de ejecución](img/finalCod.png)
-Al emplear el Shadow DOM y CSS Variables, los componentes tienen un alto grado de encapsulamiento y flexibilidad, permitiendo cambios dinámicos en el diseño
 
   # Conclusiones 
 
