@@ -1,278 +1,248 @@
 import { LitElement, html, css } from 'lit-element';
 
 class EspeProductCard extends LitElement {
-    static get properties() {
-        return {
-            name: { type: String },
-            image: { type: String },
-            rating: { type: Number },
-            sales: { type: Number },
-            lowstock: { type: Boolean, reflect: true },
-            offer: { type: Number },
-            sku: { type: String },
-            currentPrice: { type: Number },
-            originalPrice: { type: Number },
-            hasDiscount: { type: Boolean },
-            quantity: { type: Number },
-            isFavorite: { type: Boolean },
-            theme: { type: String, reflect: true }
-        };
+  static get properties() {
+    return {
+      name: { type: String },
+      image: { type: String },
+      rating: { type: Number },
+      sales: { type: Number },
+      lowstock: { type: Boolean, reflect: true },
+      offer: { type: Number },
+      sku: { type: String },
+      currentPrice: { type: Number },
+      originalPrice: { type: Number },
+      hasDiscount: { type: Boolean },
+      quantity: { type: Number },
+      isFavorite: { type: Boolean },
+      theme: { type: String, reflect: true }
+    };
+  }
+
+  constructor() {
+    super();
+    this.name = 'Producto sin nombre';
+    this.image = '';
+    this.rating = 0;
+    this.sales = 0;
+    this.lowstock = false;
+    this.offer = 0;
+    this.sku = '';
+    this.currentPrice = 0;
+    this.originalPrice = 0;
+    this.hasDiscount = false;
+    this.quantity = 0;
+    this.isFavorite = false;
+    this.theme = 'light';
+  }
+
+  static styles = css`
+    :host {
+      --color-primario: #006935;
+      --color-secundario: #FFE700;
+      --color-peligro: #DF0303;
+      --bg-claro: #ffffff;
+      --bg-oscuro: #1f2937;
+      --text-claro: #000000;
+      --text-oscuro: #ffffff;
+      --font: 'Arial', 'Roboto', sans-serif;
+
+      display: block;
+      font-family: var(--font);
+      background-color: var(--bg-claro);
+      color: var(--text-claro);
     }
 
-    constructor() {
-        super();
-        this.name = 'Producto sin nombre';
-        this.image = '';
-        this.rating = 0;
-        this.sales = 0;
-        this.lowstock = false;
-        this.offer = 0;
-        this.sku = '';
-        this.currentPrice = 0;
-        this.originalPrice = 0;
-        this.hasDiscount = false;
-        this.quantity = 0;
-        this.isFavorite = false;
-        this.theme = 'light';
+    :host([theme="dark"]) {
+      background-color: var(--bg-oscuro);
+      color: var(--text-oscuro);
     }
 
-    static styles = css`
-        :host {
-            --primary-color: #003c71;
-            --accent-color: #fca311;
-            --danger-color: #df0303;
-            --lowstock-color: #ffa500;
-            --font-family: 'Arial', sans-serif;
+    .card {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      overflow: hidden;
+      max-width: 275px;
+      background: inherit;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
 
-            display: block;
-            font-family: var(--font-family);
-            /* background-color: var(--bg-color, #fff); */
-            color: var(--text-color, #000);
-        }
+    .card:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      transform: scale(1.03);
+    }
 
-        :host([theme="dark"]) {
-            --bg-color: #1f2937;
-            --text-color: #e5e7eb;
-        }
+    .image-container {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      position: relative;
+    }
 
-        .card {
-            width: auto;
-            max-width: 275px;
-            background: var(--bg-color, white);
-            border: 1px solid #ccc;
-            border-radius: 0.5rem;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            transition: box-shadow 0.2s;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-        }
+    .image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
-        .card:hover {
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
+    .favorite-btn {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
 
-        .image-container {
-            position: relative;
-            width: 100%;
-            aspect-ratio: 1/1;
-        }
+    .content {
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
 
-        .image-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+    h3 {
+      font-size: 1rem;
+      font-weight: bold;
+      margin: 0;
+    }
 
-        .favorite-btn {
-            position: absolute;
-            top: 0;
-            right: 0.75rem;
-            width: 2.25rem;
-            height: 2.25rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 0 0 9999px 9999px;
-            border-top: 0px;
-            border-right: 1px solid #ccc;
-            border-bottom: 1px solid #ccc;
-            border-left: 1px solid #ccc;
-            background: white;
-            cursor: pointer;
-        }
+    .details, .price-line {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 0.85rem;
+    }
 
-        .favorite-btn.selected {
-            background: #e3f2fd;
-        }
+    .lowstock {
+      color: orange;
+      font-weight: bold;
+    }
 
-        .content {
-            padding: 0.5rem;
-            display: flex;
-            flex-direction: column;
-            gap: 0.25rem;
-        }
+    .discount {
+      color: var(--color-peligro);
+    }
 
-        h3 {
-            font-size: 0.95rem;
-            font-weight: bold;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            margin: 0;
-        }
+    .original {
+      text-decoration: line-through;
+    }
 
-        .details,
-        .price-line {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 0.25rem;
-            font-size: 0.8rem;
-        }
+    .badge {
+      background: var(--color-peligro);
+      color: white;
+      font-size: 0.75rem;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
 
-        .lowstock {
-            color: var(--lowstock-color);
-            font-size: 0.6rem;
-            font-weight: bold;
-        }
+    .buttons {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      margin-top: 8px;
+    }
 
-        .discount {
-            color: #f97316;
-        }
+    .add-button,
+.qty-btn {
+  background: var(--color-primario);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
 
-        .original {
-            text-decoration: line-through;
-        }
+.add-button:hover {
+  background: #004d26; /* un verde más oscuro */
+}
 
-        .badge {
-            font-size: 0.75rem;
-            font-weight: bold;
-            padding: 0 2px;
-            border: 1px solid #f97316;
-            color: #f97316;
-            border-radius: 2px;
-        }
+.qty-btn:hover {
+  background: #004d26;
+}
 
-        .buttons {
-            margin: 0 5px 5px 5px;
-            display: flex;
-            gap: 0.5rem;
-            align-items: center;
-            justify-content: center;
-        }
 
-        .add-button,
-        .qty-btn {
-            background: var(--accent-color);
-            border: none;
-            border-radius: 0.5rem;
-            padding: 0.25rem 0.5rem;
-            cursor: pointer;
-            font-size: 18px;
-            font-weight: bold;
-            margin: 0 5px 5px 5px;
-        }
+    .quant {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      width: 40px;
+      text-align: center;
+    }
+  `;
 
-        .qty-btn {
-            color: #fff;
-            background: #000;
-        }
-
-        .quant{
-            width: 100%;
-            padding: 0.43rem;
-            text-align: center;
-            font-weight: bold;
-            border: 1px solid #ccc;
-            border-radius: 0.5rem;
-            font-size: 18px;
-        }
-    `;
-
-    render() {
-        return html`
-            <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
-            <div class="card">
-                <div class="image-container">
-                    <img src="${this.image}" alt="${this.name}" />
-                    <button class="favorite-btn ${this.isFavorite ? 'selected' : ''}" @click="${this._toggleFavorite}">
-                        <span class="material-icons" style="color: ${this.isFavorite ? '#003c71' : '#6b7280'}">
-                            ${this.isFavorite ? 'bookmark' : 'bookmark_border'}
-                        </span>
-                    </button>
-                </div>
-
-                <div class="content">
-                        <h3>${this.name}</h3>
-                            <div class="details">
-                                ${this.rating > 0 ? html`<span>★ ${this.rating}</span>` : ''}
-                                ${this.sales > 0 ? html`<span>+${this.sales} ventas</span>` : ''}
-                                ${this.lowstock ? html`<span class="lowstock">POCAS UNIDADES</span>` : ''}
-                            </div>
-
-                            <div class="price-line">
-                                <span class="${this.hasDiscount ? 'discount' : 'text-danger'}">
-                                    $${this.currentPrice.toFixed(2)}
-                                </span>
-                            ${this.hasDiscount
-                                ? html`
-                                    <span class="original">$${this.originalPrice.toFixed(2)}</span>
-                                    <span class="badge">-${this.offer}%</span>
-                                `
-                                : ''}
-                            <span>COD: ${this.sku}</span>
-                        </div>
-                </div>
-
-                ${this.quantity === 0
-                    ? html`
-                        <button class="add-button" @click="${this._addToCart}">
-                            <div class="buttons">
-                                Agregar
-                                <span class="material-icons">add_shopping_cart</span>
-                            </div>
-                        </button>
-                        `
-                    : html`
-                        <div class="buttons">
-                            <button class="qty-btn" @click="${this._decrement}">
-                            <span class="material-icons">remove</span>
-                            </button>
-                            <span class="quant">${this.quantity}</span>
-                            <button class="qty-btn" @click="${this._increment}">
-                            <span class="material-icons">add</span>
-                            </button>
-                        </div>
-                        `
-                }
+  render() {
+    return html`
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+      <div class="card">
+        <div class="image-container">
+          <img src="${this.image}" alt="${this.name}" />
+          <button class="favorite-btn" @click="${this._toggleFavorite}">
+            <span class="material-icons">${this.isFavorite ? 'bookmark' : 'bookmark_border'}</span>
+          </button>
+        </div>
+        <div class="content">
+          <h3>${this.name}</h3>
+          <div class="details">
+            ${this.rating ? html`<span>★ ${this.rating}</span>` : ''}
+            ${this.sales ? html`<span>+${this.sales} ventas</span>` : ''}
+            ${this.lowstock ? html`<span class="lowstock">POCAS UNIDADES</span>` : ''}
+          </div>
+          <div class="price-line">
+            <span class="${this.hasDiscount ? 'discount' : ''}">$${this.currentPrice.toFixed(2)}</span>
+            ${this.hasDiscount ? html`
+              <span class="original">$${this.originalPrice.toFixed(2)}</span>
+              <span class="badge">-${this.offer}%</span>
+            ` : ''}
+            <span>COD: ${this.sku}</span>
+          </div>
+          ${this.quantity === 0 ? html`
+            <button class="add-button" @click="${this._addToCart}">
+              Agregar <span class="material-icons">add_shopping_cart</span>
+            </button>
+          ` : html`
+            <div class="buttons">
+              <button class="qty-btn" @click="${this._decrement}">-</button>
+              <span class="quant">${this.quantity}</span>
+              <button class="qty-btn" @click="${this._increment}">+</button>
             </div>
-        `;
-    }
+          `}
+        </div>
+      </div>
+    `;
+  }
 
-    _toggleFavorite() {
-        this.isFavorite = !this.isFavorite;
-        this.dispatchEvent(new CustomEvent('favorite-toggle', {
-        detail: { isFavorite: this.isFavorite }
-        }));
-    }
+  _toggleFavorite() {
+    this.isFavorite = !this.isFavorite;
+    this.dispatchEvent(new CustomEvent('favorite-toggle', {
+      detail: { isFavorite: this.isFavorite }
+    }));
+  }
 
-    _addToCart() {
-        this.quantity = 1;
-        this.dispatchEvent(new CustomEvent('add-to-cart'));
-    }
+  _addToCart() {
+    this.quantity = 1;
+    this.dispatchEvent(new CustomEvent('add-to-cart'));
+  }
 
-    _increment() {
-        this.quantity++;
-        this.dispatchEvent(new CustomEvent('quantity-change', { detail: this.quantity }));
-    }
+  _increment() {
+    this.quantity++;
+    this.dispatchEvent(new CustomEvent('quantity-change', { detail: this.quantity }));
+  }
 
-    _decrement() {
-        if (this.quantity > 0) {
-        this.quantity--;
-        this.dispatchEvent(new CustomEvent('quantity-change', { detail: this.quantity }));
-        }
+  _decrement() {
+    if (this.quantity > 0) {
+      this.quantity--;
+      this.dispatchEvent(new CustomEvent('quantity-change', { detail: this.quantity }));
     }
+  }
 }
 
 customElements.define('espe-product-card', EspeProductCard);
