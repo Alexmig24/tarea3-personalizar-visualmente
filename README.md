@@ -344,8 +344,11 @@ Este archivo contiene las dependencias del proyecto y las configuraciones de los
 - Compatibles con temas y modo oscuro.
 - Mejoran la escalabilidad y mantenimiento del código.
 
+    ![Captura de ejecución](img/finalCod.png)
+Al emplear el Shadow DOM y CSS Variables, los componentes tienen un alto grado de encapsulamiento y flexibilidad, permitiendo cambios dinámicos en el diseño
+
   # Conclusiones 
 
 - El efecto de cambio de color en el componente <espe-card> se activa a través del atributo theme, que puede ser light o dark. Dependiendo de su valor, el color de fondo, texto y otros elementos de la tarjeta cambian dinámicamente.
-- Los CSS Variables permiten personalizar el diseño sin necesidad de modificar el código directamente.
+- Los CSS Variables permiten personalizar el diseño sin necesidad de modificar el código directamente, theme permite una personalización visual dinámica en función de los atributos del componente.
 - El componente usa un selector de tema para cambiar entre modos claros y oscuros con solo cambiar el atributo theme. 
