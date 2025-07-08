@@ -29,25 +29,40 @@ Desarrollar dos componentes visualmente personalizables utilizando **CSS Variabl
 ### Diseño en Figma
 
 > - Crear un prototipo de componente alineado al Manual de Imagen de la ESPE.
-- Definir variantes de estilo (ej: tema claro, tema oscuro, estado "agotado").
+> - Definir variantes de estilo (ej: tema claro, tema oscuro, estado "agotado").
 
+```bash
+https://github.com/Alexmig24/tarea3-personalizar-visualmente/tree/feature/figma 
+```
 ### Desarrollo del Componente
 
 - Usar LitElement para crear el componente con:
 > -  CSS Variables para colores y espaciado.
 > -  Atributos dinámicos (ej: tema, estado, tamaño).
 
+```bash
+https://github.com/Alexmig24/tarea3-personalizar-visualmente/tree/feature/developer 
+```
+
 ### Validación de Identidad de Marca
 
 > - Aplicar colores institucionales (#003C71, #FFD700).
 > - Usar tipografía Arial/Roboto y espaciado en base 8px.
 
-Pruebas y Documentación
+```bash
+https://github.com/Alexmig24/tarea3-personalizar-visualmente/tree/feature/styles
+```
 
-Probar el componente en navegadores modernos (Chrome, Firefox, Safari).
-Generar capturas de pantalla en el README.md con temas claro y oscuro.
-Completar README.md con ejemplos de uso y atributos.
 
+### Pruebas y Documentación
+
+> - Probar el componente en navegadores modernos (Chrome, Firefox, Safari).
+> - Generar capturas de pantalla en el README.md con temas claro y oscuro.
+> - Completar README.md con ejemplos de uso y atributos.
+
+```bash
+https://github.com/Alexmig24/tarea3-personalizar-visualmente/tree/feacture/documents
+```
 
 # Componentes
 ## 1. `<product-card>` (Horizontal)
