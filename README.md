@@ -65,9 +65,52 @@ https://github.com/Alexmig24/tarea3-personalizar-visualmente/tree/feacture/docum
 ```
 
 # Componentes
-## 1. `<product-card>` (Horizontal)
+### 1. `<product-card>` (Horizontal)
 
 > Componente tipo ficha horizontal con imagen a la izquierda y detalles a la derecha.
+> Este es un componente basado en LitElement, utilizado para representar una tarjeta de producto con detalles visuales.
+
+### Propiedades 
+Se definen varias propiedades del componente, como el nombre del producto, la imagen, la calificación, ventas, precios, descuento, entre otros. 
+
+### Métodos 
+_toggleFavorite: Cambia el estado de "favorito".
+
+```js
+ _toggleFavorite() {
+        this.isFavorite = !this.isFavorite;
+        this.dispatchEvent(new CustomEvent('favorite-toggle', {
+            detail: { isFavorite: this.isFavorite }
+        }));
+    }
+```
+_addToCart: Agrega el producto al carrito.
+```js
+_addToCart() {
+        this.quantity = 1;
+        this.dispatchEvent(new CustomEvent('add-to-cart'));
+    }
+```
+  ![Captura de ejecución](img/eje2.png)
+
+_increment y _decrement: Incrementa o decrementa la cantidad del producto en el carrito. 
+
+```js
+ _increment() {
+        this.quantity++;
+        this.dispatchEvent(new CustomEvent('quantity-change', { detail: this.quantity }));
+    }
+
+    _decrement() {
+        if (this.quantity > 0) {
+            this.quantity--;
+            this.dispatchEvent(new CustomEvent('quantity-change', { detail: this.quantity }));
+        }
+    }
+```
+  ![Captura de ejecución](img/eje4.png)
+
+
 
 ## 2. `<product-grid>` (Vertical) 
 Componente tipo tarjeta vertical con imagen superior y detalles inferiores.
