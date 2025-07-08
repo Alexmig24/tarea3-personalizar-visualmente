@@ -18,10 +18,35 @@ Desarrollar dos componentes visualmente personalizables utilizando **CSS Variabl
 
 | **Rol**                    | **Responsable**         | **Descripción**                                          |
 |----------------------------|--------------|----------------------------------------------------------|
-| Diuseñador UI               |Alexander Quizpe | Crear prototipo en Figma alineado al Manual de Imagen de la ESPE.  
-| Desarrollador de Componente    | Anthony Mejia     | Implementar el componente en LitElement con CSS Variables y Shadow DOM | 
-| Especialista en Estilos        | Geovanny Duran     | Validar estilos según la identidad de marca y accesibilidad.|
-| Tester y Documentador          | Anderson Campos      |	Probar en múltiples navegadores y generar documentación técnica.  |
+| Diuseñador UI               |Anthony Mejia   | Crear prototipo en Figma alineado al Manual de Imagen de la ESPE.  
+| Desarrollador de Componente   |Alexander Quizphe     | Implementar el componente en LitElement con CSS Variables y Shadow DOM | 
+| Especialista en Estilos        |Geovanny Duran     | Validar estilos según la identidad de marca y accesibilidad.|
+| Tester y Documentador          |Anderson Campos      |	Probar en múltiples navegadores y generar documentación técnica.  |
+
+
+# Actividades Detalladas
+
+### Diseño en Figma
+
+> - Crear un prototipo de componente alineado al Manual de Imagen de la ESPE.
+- Definir variantes de estilo (ej: tema claro, tema oscuro, estado "agotado").
+
+### Desarrollo del Componente
+
+- Usar LitElement para crear el componente con:
+> -  CSS Variables para colores y espaciado.
+> -  Atributos dinámicos (ej: tema, estado, tamaño).
+
+### Validación de Identidad de Marca
+
+> - Aplicar colores institucionales (#003C71, #FFD700).
+> - Usar tipografía Arial/Roboto y espaciado en base 8px.
+
+Pruebas y Documentación
+
+Probar el componente en navegadores modernos (Chrome, Firefox, Safari).
+Generar capturas de pantalla en el README.md con temas claro y oscuro.
+Completar README.md con ejemplos de uso y atributos.
 
 
 # Componentes
